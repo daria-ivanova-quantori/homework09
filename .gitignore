@@ -1,0 +1,7 @@
+.idea
+bin
+obj
+.vs
+.vscode
+*.feature.cs
+*.user
