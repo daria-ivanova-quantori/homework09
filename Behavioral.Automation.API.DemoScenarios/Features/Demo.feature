@@ -26,7 +26,6 @@
         When user sends a "POST" request to "api/users" url with the json file "TestData\User.json"
 
     Scenario: Get exist user
-        Given expected response status code is "200"
         When user sends a "GET" request to "api/users/2" url
         Then response json path "$.data.first_name" value should be "["Janet"]"
 
