@@ -20,9 +20,9 @@ class MainPage : ISelectorStorage
 
     public ItemSelector InventoryList = new()
     {
-        Selector = "//div[@class='inventory_list']",
+        Selector = "//*[@class='inventory_item']",
         ItemNameSelector = new ElementSelector() { Selector = "//div[@class='inventory_item_name']" },
-        addToCartButtonSelector = new ElementSelector() { IdSelector = "contains(add-to-cart-)" },
+        addToCartButtonSelector = new ElementSelector() { Selector = "//*[contains(@id,'add-to-cart-')]" },
         removeFromCartButtonSelector = new ElementSelector() { IdSelector = "contains(remove-)" }
     };
 

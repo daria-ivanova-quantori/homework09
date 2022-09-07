@@ -11,7 +11,17 @@ public class ItemBinding
     [When(@"user adds the ""(.*)"" item from ""(.*)"" to the cart")]
     public async Task AddItemToCart(string element, ItemWrapper collection)
     {
-        var test1 =  collection.Locator.Filter(new LocatorFilterOptions(){HasTextString = "item_4"});
+        var count = await collection.Locator.CountAsync();
+        var count1 = await collection.addToCartButton.CountAsync();
+        
+        await collection.addToCartButton.ClickAsync();
+        // for (var i = 0; i < count; i++)
+        // {
+        //     if (collection.Locator.TextContentAsync(collection.Locator) == element)
+        //     {
+        //         
+        //     }
+        // }
     }
 
     [When(@"user removes the ""(.*)"" item from ""(.*)"" from the cart")]
