@@ -37,4 +37,4 @@
         And user clicked on "Login button"
         And user added the "Sauce Labs Backpack" item from "Inventory List" to the cart
         When user removes the "Sauce Labs Backpack" item from "Inventory List" from the cart
-        Then the "Shopping Cart Badge" text should be ""
+        Then the "Shopping Cart Badge" should be not visible
