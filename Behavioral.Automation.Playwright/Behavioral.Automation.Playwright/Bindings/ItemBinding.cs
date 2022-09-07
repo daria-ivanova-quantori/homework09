@@ -22,7 +22,15 @@ public class ItemBinding
 
             if (itemText == element)
             {
-                await collection.addToCartButton.Nth(i).ClickAsync();
+                if (i == 0)
+                {
+                    await collection.addToCartButton.Nth(i).ClickAsync();
+                }
+                else if (i != 0)
+                {
+                    await collection.addToCartButton.Nth(i-1).ClickAsync(); 
+                }
+                break;
             }
         }
     }
@@ -39,7 +47,15 @@ public class ItemBinding
 
             if (itemText == element)
             {
-                await collection.removeFromCartButton.Nth(i).ClickAsync();
+                if (i == 0)
+                {
+                    await collection.removeFromCartButton.Nth(i).ClickAsync();
+                }
+                else if (i != 0)
+                {
+                    await collection.removeFromCartButton.Nth(i-1).ClickAsync(); 
+                }
+                break;
             }
         }
     }
