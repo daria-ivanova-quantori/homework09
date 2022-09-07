@@ -2,6 +2,7 @@
 using Behavioral.Automation.Playwright.ElementTransformations;
 using Behavioral.Automation.Playwright.WebElementsWrappers;
 using Microsoft.Playwright;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 
@@ -12,16 +13,17 @@ public class ItemBinding
     public async Task AddItemToCart(string element, ItemWrapper collection)
     {
         var count = await collection.Locator.CountAsync();
-        var count1 = await collection.addToCartButton.CountAsync();
-        
-        await collection.addToCartButton.ClickAsync();
-        // for (var i = 0; i < count; i++)
-        // {
-        //     if (collection.Locator.TextContentAsync(collection.Locator) == element)
-        //     {
-        //         
-        //     }
-        // }
+
+        for (var i = 0; i < count; i++)
+        {
+            var divItemText = collection.itemName.Nth(i).InnerTextAsync();
+            string itemText = divItemText.Result;
+
+            if (itemText == element)
+            {
+                await collection.addToCartButton.Nth(i).ClickAsync();
+            }
+        }
     }
 
     [When(@"user removes the ""(.*)"" item from ""(.*)"" from the cart")]
