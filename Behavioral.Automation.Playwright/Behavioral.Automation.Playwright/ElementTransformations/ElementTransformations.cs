@@ -40,6 +40,13 @@ public class ElementTransformations
         return new TableWrapper(_webContext, tableSelector, caption);
     }
 
+    [StepArgumentTransformation]
+    public ItemWrapper GetItemElement(string caption)
+    {
+        var itemSelector = _locatorStorageService.Get<ItemSelector>(caption);
+        return new ItemWrapper(_webContext, itemSelector, caption);
+    }
+
     /// <summary>
     /// Transform "enabled" or "disabled" string into bool value
     /// </summary>

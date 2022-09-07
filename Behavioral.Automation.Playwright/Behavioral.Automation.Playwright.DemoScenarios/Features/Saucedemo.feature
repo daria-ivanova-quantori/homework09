@@ -21,3 +21,11 @@
         And user entered "secret_sauce" into "Password"
         And user clicked on "Login button"
         Then there should be 6 of "Inventory Item" items
+        
+    Scenario: Add item via wrapper 
+        Given application URL is opened
+        And user entered "standard_user" into "Username"
+        And user entered "secret_sauce" into "Password"
+        And user clicked on "Login button"
+        When user adds the "Sauce Labs Backpack" item from "Inventory List" to the cart
+        Then the "Shopping Cart Badge" text should be "1"

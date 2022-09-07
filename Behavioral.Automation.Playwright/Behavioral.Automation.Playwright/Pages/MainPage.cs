@@ -9,7 +9,7 @@ class MainPage : ISelectorStorage
     private static readonly string Id = ConfigManager.GetConfig<Config>().SearchAttribute;
 
     public ElementSelector PageHeader = new() { Selector = "//span[@class='title']" };
-    
+
     //Login
     public ElementSelector Username = new() { IdSelector = "username" };
     public ElementSelector Password = new() { IdSelector = "password" };
@@ -17,7 +17,14 @@ class MainPage : ISelectorStorage
 
     //Items
     public ElementSelector AddBackpackToCart = new() { IdSelector = "add-to-cart-sauce-labs-backpack" };
-    public ElementSelector InventoryItem = new() { Selector = "//div[@class='inventory_item']" };
+
+    public ItemSelector InventoryList = new()
+    {
+        Selector = "//div[@class='inventory_list']",
+        ItemNameSelector = new ElementSelector() { Selector = "//div[@class='inventory_item_name']" },
+        addToCartButtonSelector = new ElementSelector() { IdSelector = "contains(add-to-cart-)" },
+        removeFromCartButtonSelector = new ElementSelector() { IdSelector = "contains(remove-)" }
+    };
 
     //ShoppingCart
     public ElementSelector ShoppingCartBadge = new() { Selector = "//span[@class='shopping_cart_badge']" };
