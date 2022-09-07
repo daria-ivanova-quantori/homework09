@@ -14,3 +14,10 @@
         And user clicks on "Continue Button"
         And user clicks on "Finish Button"
         Then the "Page Header" text should be "Checkout: Complete!"
+
+    Scenario: Check amount of elements on page
+        Given application URL is opened
+        And user entered "standard_user" into "Username"
+        And user entered "secret_sauce" into "Password"
+        And user clicked on "Login button"
+        Then there should be 6 of "Inventory Item" items

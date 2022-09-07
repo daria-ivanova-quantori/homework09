@@ -15,7 +15,7 @@ public class VisibilityBinding
     {
         _elementTransformations = elementTransformations;
     }
-    
+
     [Given(@"the ""(.+?)"" (is|is not) visible")]
     [Then(@"the ""(.+?)"" should (be|be not) visible")]
     public async Task CheckElementVisibility(WebElementWrapper element, string condition)
@@ -38,5 +38,11 @@ public class VisibilityBinding
         {
             await CheckElementVisibility(_elementTransformations.GetElement(row.Values.First()), condition);
         }
+    }
+
+    [Then(@"there should be (.+?) of ""(.+?)"" items")]
+    public async Task CheckVisibility(int count, WebElementWrapper element)
+    {
+        await Assertions.Expect(element.Locator).ToHaveCountAsync(count);
     }
 }

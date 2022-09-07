@@ -17,6 +17,7 @@ class MainPage : ISelectorStorage
 
     //Items
     public ElementSelector AddBackpackToCart = new() { IdSelector = "add-to-cart-sauce-labs-backpack" };
+    public ElementSelector InventoryItem = new() { Selector = "//div[@class='inventory_item']" };
 
     //ShoppingCart
     public ElementSelector ShoppingCartBadge = new() { Selector = "//span[@class='shopping_cart_badge']" };
