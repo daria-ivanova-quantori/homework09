@@ -9,6 +9,7 @@ using TechTalk.SpecFlow;
 [Binding]
 public class ItemBinding
 {
+    [Given(@"user added the ""(.*)"" item from ""(.*)"" to the cart")]
     [When(@"user adds the ""(.*)"" item from ""(.*)"" to the cart")]
     public async Task AddItemToCart(string element, ItemWrapper collection)
     {
@@ -29,6 +30,17 @@ public class ItemBinding
     [When(@"user removes the ""(.*)"" item from ""(.*)"" from the cart")]
     public async Task RemoveItemFromCart(string element, ItemWrapper collection)
     {
-        // await Assertions.Expect(element.Locator).ToHaveTextAsync(expectedString);
+        var count = await collection.Locator.CountAsync();
+
+        for (var i = 0; i < count; i++)
+        {
+            var divItemText = collection.itemName.Nth(i).InnerTextAsync();
+            string itemText = divItemText.Result;
+
+            if (itemText == element)
+            {
+                await collection.removeFromCartButton.Nth(i).ClickAsync();
+            }
+        }
     }
 }

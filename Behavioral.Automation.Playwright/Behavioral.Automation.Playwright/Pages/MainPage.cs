@@ -17,13 +17,14 @@ class MainPage : ISelectorStorage
 
     //Items
     public ElementSelector AddBackpackToCart = new() { IdSelector = "add-to-cart-sauce-labs-backpack" };
+    public ElementSelector InventoryItem = new() { Selector = "//div[@class='inventory_item_name']"};
 
-    public ItemSelector InventoryList = new()
+        public ItemSelector InventoryList = new()
     {
         Selector = "//*[@class='inventory_item']",
         ItemNameSelector = new ElementSelector() { Selector = "//div[@class='inventory_item_name']" },
         addToCartButtonSelector = new ElementSelector() { Selector = "//*[contains(@id,'add-to-cart-')]" },
-        removeFromCartButtonSelector = new ElementSelector() { IdSelector = "contains(remove-)" }
+        removeFromCartButtonSelector = new ElementSelector() { Selector = "//*[contains(@id,'remove-')]" }
     };
 
     //ShoppingCart
