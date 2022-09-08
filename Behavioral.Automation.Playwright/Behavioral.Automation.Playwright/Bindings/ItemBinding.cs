@@ -17,8 +17,7 @@ public class ItemBinding
 
         for (var i = 0; i < count; i++)
         {
-            var divItemText = collection.itemName.Nth(i).InnerTextAsync();
-            string itemText = divItemText.Result;
+            string itemText = collection.itemName.Nth(i).InnerTextAsync().Result;
 
             if (itemText == element)
             {
