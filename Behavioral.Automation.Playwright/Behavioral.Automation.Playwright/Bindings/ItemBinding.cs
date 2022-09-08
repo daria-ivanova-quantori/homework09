@@ -34,8 +34,7 @@ public class ItemBinding
 
         for (var i = 0; i < count; i++)
         {
-            var divItemText = collection.itemName.Nth(i).InnerTextAsync();
-            string itemText = divItemText.Result;
+            string itemText = collection.itemName.Nth(i).InnerTextAsync().Result;
 
             if (itemText == element)
             {
@@ -45,8 +44,9 @@ public class ItemBinding
                 }
                 else if (i != 0)
                 {
-                    await collection.removeFromCartButton.Nth(i-1).ClickAsync(); 
+                    await collection.removeFromCartButton.Nth(i - 1).ClickAsync();
                 }
+
                 break;
             }
         }
