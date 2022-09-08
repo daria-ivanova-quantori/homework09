@@ -22,14 +22,7 @@ public class ItemBinding
 
             if (itemText == element)
             {
-                if (i == 0)
-                {
-                    await collection.addToCartButton.Nth(i).ClickAsync();
-                }
-                else if (i != 0)
-                {
-                    await collection.addToCartButton.Nth(i-1).ClickAsync(); 
-                }
+                await collection.addToCartButton.Nth(i).ClickAsync();
                 break;
             }
         }
