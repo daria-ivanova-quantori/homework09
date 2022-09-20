@@ -24,8 +24,9 @@ public class ItemBinding
             {
                 await collection.addToCartButton.Nth(i).ClickAsync();
                 break;
-                // await collection.Locator.Nth(i).Locator(collection.ItemSelector.addToCartButtonSelector.Selector).ClickAsync();
-                // break;
+                await collection.Locator.Nth(i).Locator(collection.ItemSelector.addToCartButtonSelector.Selector).ClickAsync();
+                break;
+                break;
             }
         }
     }
