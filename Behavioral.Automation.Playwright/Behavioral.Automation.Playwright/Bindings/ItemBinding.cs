@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Behavioral.Automation.Playwright.ElementSelectors;
 using Behavioral.Automation.Playwright.ElementTransformations;
 using Behavioral.Automation.Playwright.WebElementsWrappers;
 using Microsoft.Playwright;
@@ -23,6 +24,8 @@ public class ItemBinding
             {
                 await collection.addToCartButton.Nth(i).ClickAsync();
                 break;
+                // await collection.Locator.Nth(i).Locator(collection.ItemSelector.addToCartButtonSelector.Selector).ClickAsync();
+                // break;
             }
         }
     }

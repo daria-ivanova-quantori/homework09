@@ -28,7 +28,8 @@
         And user entered "secret_sauce" into "Password"
         And user clicked on "Login button"
         When user adds the "Sauce Labs Backpack" item from "Inventory List" to the cart
-        Then the "Shopping Cart Badge" text should be "1"
+        When user adds the "Sauce Labs Bike Light" item from "Inventory List" to the cart
+        Then the "Shopping Cart Badge" text should be "2"
 
     Scenario: Remove item from cart via wrapper
         Given application URL is opened
